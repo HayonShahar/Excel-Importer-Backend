@@ -45,6 +45,7 @@ namespace ExcelFilterApi.Controllers
 
             var token = _jwtService.GenerateToken(user);
 
+            // שמירה בקוקי (אפשר להשאיר אם רוצים)
             Response.Cookies.Append("token", token, new CookieOptions
             {
                 HttpOnly = true,
@@ -53,7 +54,15 @@ namespace ExcelFilterApi.Controllers
                 Expires = DateTime.UtcNow.AddDays(1)
             });
 
-            return Ok("Logged in");
+            // בונים response עם כל הנתונים
+            var response = new
+            {
+                token,                   // JWT
+                email = user.Email,       // האימייל של המשתמש
+                message = "התחברת בהצלחה!" // הודעת הצלחה
+            };
+
+            return Ok(response);
         }
 
         [HttpPost("logout")]
