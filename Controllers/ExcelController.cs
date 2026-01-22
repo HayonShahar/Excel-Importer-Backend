@@ -10,6 +10,7 @@ namespace ExcelFilterApi.Controllers
     public class ExcelController : ControllerBase
     {
         [HttpPost("upload")]
+        [AllowAnonymous]
         [Microsoft.AspNetCore.Authorization.Authorize]
         public async Task<IActionResult> UploadExcel([FromForm] ExcelUploadDto dto)
         {
