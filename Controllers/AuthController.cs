@@ -49,7 +49,7 @@ namespace ExcelFilterApi.Controllers
             {
                 HttpOnly = true,
                 Secure = true, // בפרודקשן
-                SameSite = SameSiteMode.Strict,
+                SameSite = SameSiteMode.None,
                 Expires = DateTime.UtcNow.AddDays(1)
             });
 
