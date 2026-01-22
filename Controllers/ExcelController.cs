@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 using OfficeOpenXml.Drawing;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExcelFilterApi.Controllers
 {
